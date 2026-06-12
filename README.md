@@ -2,10 +2,10 @@
 
 <img src="assets/banner.png" width="100%">
 
-#  PTS-Net
 
-### <span style="color:purple">Exploration</span> of the <span style="color:blue">boundaries</span> of detection capability for <span style="color:red">I</span><span style="color:orange">R</span><span style="color:yellow">S</span><span style="color:green">T</span><span style="color:cyan">D</span>
-
+<p align="center">
+  <img src="fig/headline.png" alt="Exploration of the boundaries of detection capability for IRSTD">
+</p>
 
 </div>
 
