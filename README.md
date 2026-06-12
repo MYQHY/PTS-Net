@@ -71,12 +71,12 @@ It is designed to address the following challenges:
     <td align="center" width="33%">
       <img src="fig/NUDT-MIRSDT-HiNo-Sequence6_mask_visualization.gif" width="100%">
       <br>
-      <b>NUDT-MIRSDT-HiNo</b>
+      <b>NUDT-MIRSDT-HiNo(Invisible to the naked eye)</b>
     </td>
     <td align="center" width="33%">
       <img src="fig/HIT_EWIRSTD-Sequence55_mask_visualization.gif" width="100%">
       <br>
-      <b>HIT_EWIRSTD</b>
+      <b>HIT_EWIRSTD(Invisible to the naked eye)</b>
     </td>
   </tr>
 </table>
