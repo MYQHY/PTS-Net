@@ -81,34 +81,7 @@ It is designed to address the following challenges:
   </tr>
 </table>
 
----
 
-## 📊 Qualitative Results
-
-<table>
-<tr>
-<td align="center"><b>Input</b></td>
-<td align="center"><b>Baseline</b></td>
-<td align="center"><b>Ours</b></td>
-<td align="center"><b>Ground Truth</b></td>
-</tr>
-
-<tr>
-<td><img src="assets/qualitative/input_1.png" width="100%"></td>
-<td><img src="assets/qualitative/baseline_1.png" width="100%"></td>
-<td><img src="assets/qualitative/ours_1.png" width="100%"></td>
-<td><img src="assets/qualitative/gt_1.png" width="100%"></td>
-</tr>
-
-<tr>
-<td><img src="assets/qualitative/input_2.png" width="100%"></td>
-<td><img src="assets/qualitative/baseline_2.png" width="100%"></td>
-<td><img src="assets/qualitative/ours_2.png" width="100%"></td>
-<td><img src="assets/qualitative/gt_2.png" width="100%"></td>
-</tr>
-</table>
-
----
 
 ## 🏆 Main Results
 
@@ -125,34 +98,6 @@ It is designed to address the following challenges:
 > **↑** means higher is better. **↓** means lower is better.  
 > The best results are shown in **bold**.
 
----
-
-## 📈 Performance Visualization
-
-<p align="center">
-  <img src="assets/performance_bar.png" width="78%">
-</p>
-
-<p align="center">
-  <b>Performance comparison with representative state-of-the-art methods.</b>
-</p>
-
----
-
-## 🔬 Ablation Study
-
-| Variant | Module A | Module B | Module C | Metric-1 ↑ | Metric-2 ↑ | Metric-3 ↓ |
-|---|:---:|:---:|:---:|---:|---:|---:|
-| Baseline | ✗ | ✗ | ✗ | 76.2 | 69.4 | 11.8 |
-| + Module A | ✓ | ✗ | ✗ | 79.1 | 72.3 | 9.6 |
-| + Module A + B | ✓ | ✓ | ✗ | 81.5 | 75.1 | 7.4 |
-| **Full Model** | ✓ | ✓ | ✓ | **84.7** | **78.5** | **5.9** |
-
-<p align="center">
-  <img src="assets/ablation.png" width="82%">
-</p>
-
----
 
 ## ⚙️ Installation
 
@@ -184,39 +129,6 @@ python setup.py build develop
 cd ..
 ```
 
----
-
-## 📁 Dataset Preparation
-
-Please organize the dataset as follows:
-
-```text
-datasets/
-├── DatasetName/
-│   ├── train/
-│   │   ├── images/
-│   │   ├── events/
-│   │   ├── labels/
-│   │   └── annotations.json
-│   ├── val/
-│   │   ├── images/
-│   │   ├── events/
-│   │   ├── labels/
-│   │   └── annotations.json
-│   └── test/
-│       ├── images/
-│       ├── events/
-│       ├── labels/
-│       └── annotations.json
-```
-
-You can modify the dataset path in:
-
-```bash
-configs/dataset.yaml
-```
-
----
 
 ## 🚀 Quick Start
 
@@ -307,218 +219,13 @@ python tools/test.py \
 
 ---
 
-## 🗂️ Repository Structure
-
-```text
-YourProjectName/
-├── assets/                  # Figures, demos, and README images
-├── configs/                 # Configuration files
-├── datasets/                # Dataset preparation and dataloaders
-├── models/                  # Model architectures
-│   ├── backbones/
-│   ├── necks/
-│   ├── heads/
-│   └── modules/
-├── tools/                   # Training, testing, inference scripts
-├── scripts/                 # Shell scripts
-├── docs/                    # Detailed documentation
-├── demo/                    # Demo samples
-├── checkpoints/             # Pretrained models
-├── outputs/                 # Visualization and prediction outputs
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
-
----
-
-## 🧪 Reproducibility Checklist
-
-- [x] Training code
-- [x] Evaluation code
-- [x] Inference code
-- [x] Visualization script
-- [x] Configuration files
-- [x] Pretrained models
-- [x] Dataset preparation instructions
-- [x] Random seed control
-- [x] Main experimental logs
-- [x] Ablation study settings
-
----
-
-## 🛠️ Configuration
-
-Most experimental settings can be modified in:
-
-```bash
-configs/ours.yaml
-```
-
-Example:
-
-```yaml
-model:
-  name: YourProjectName
-  backbone: resnet50
-  input_modality: rgb_event
-  num_classes: 1
-
-dataset:
-  name: DatasetName
-  root: datasets/DatasetName
-  input_size: [512, 512]
-
-training:
-  epochs: 100
-  batch_size: 8
-  optimizer: AdamW
-  learning_rate: 0.0001
-  weight_decay: 0.0005
-
-evaluation:
-  metrics:
-    - metric_1
-    - metric_2
-    - metric_3
-```
-
----
-
-## 🌈 Visualization Tools
-
-Generate qualitative comparison figures:
-
-```bash
-python tools/visualize_comparison.py \
-    --config configs/ours.yaml \
-    --checkpoint checkpoints/ours_best.pth \
-    --input demo/sample \
-    --save-dir outputs/visualization
-```
-
-Generate feature maps:
-
-```bash
-python tools/visualize_features.py \
-    --config configs/ours.yaml \
-    --checkpoint checkpoints/ours_best.pth \
-    --input demo/sample \
-    --layer model.backbone.stage3
-```
-
-Generate attention maps:
-
-```bash
-python tools/visualize_attention.py \
-    --config configs/ours.yaml \
-    --checkpoint checkpoints/ours_best.pth \
-    --input demo/sample
-```
-
----
-
-## 📌 TODO
-
-- [x] Release inference code
-- [x] Release training code
-- [x] Release pretrained models
-- [x] Release visualization tools
-- [ ] Release extended benchmark results
-- [ ] Release deployment version
-- [ ] Release TensorRT acceleration code
-
----
-
-## ❓ FAQ
-
-<details>
-<summary><b>Q1: How can I reproduce the main results?</b></summary>
-
-Please download the pretrained model from the Model Zoo and run:
-
-```bash
-python tools/test.py \
-    --config configs/ours.yaml \
-    --checkpoint checkpoints/ours_best.pth
-```
-
-</details>
-
-<details>
-<summary><b>Q2: How should I prepare my own dataset?</b></summary>
-
-Please follow the dataset structure in the Dataset Preparation section. You may also implement a custom dataset class in:
-
-```text
-datasets/custom_dataset.py
-```
-
-</details>
-
-<details>
-<summary><b>Q3: Can this method be deployed on edge devices?</b></summary>
-
-Yes. We provide a lightweight version and deployment scripts. Please refer to:
-
-```text
-docs/deployment.md
-```
-
-</details>
-
----
-
-## 📚 Citation
-
-If you find this project useful, please consider citing our paper:
-
-```bibtex
-@article{yourname2026yourproject,
-  title={Your Paper Title},
-  author={Author A and Author B and Author C and Author D},
-  journal={IEEE Transactions on XXX},
-  year={2026},
-  volume={xx},
-  number={xx},
-  pages={xx--xx},
-  doi={xx.xxxx/xxxxx}
-}
-```
-
-For conference papers:
-
-```bibtex
-@inproceedings{yourname2026yourproject,
-  title={Your Paper Title},
-  author={Author A and Author B and Author C and Author D},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  year={2026},
-  pages={xx--xx}
-}
-```
-
----
-
-## 🙏 Acknowledgement
-
-This repository is built upon several excellent open-source projects. We sincerely thank the authors for their valuable contributions.
-
-- [PyTorch](https://pytorch.org/)
-- [OpenMMLab](https://openmmlab.com/)
-- [timm](https://github.com/huggingface/pytorch-image-models)
-- [Papers with Code](https://paperswithcode.com/)
-
----
 
 ## 📮 Contact
 
 For questions, discussions, or collaborations, please contact:
 
 ```text
-Your Name
-your_email@example.com
-Your Institution
+24B921001@stu.hit.edu.cn
 ```
 
 You may also open an issue in this repository.
