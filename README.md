@@ -65,13 +65,13 @@ It is designed to address the following challenges:
 
 <tr>
 <td width="50%">
-
-<img src="assets/highlight_framework.png" width="100%">
+  
+### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
 </td>
-<td width="50%">
 
-### 🧠 Break through the existing upper limit of extremely weak target detection capability
+<td width="50%">
+<img src="assets/highlight_framework.png" width="100%">
 
 </td>
 </tr>
