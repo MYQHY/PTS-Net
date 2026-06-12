@@ -54,15 +54,11 @@ It is designed to address the following challenges:
   
 
 ### 🌗 Innovative ideas inspired by event sensors
-<p align="center">
-  <img src="fig/left" alt="Like a event camera">
-</p>
-
 
 </td>
 <td width="50%">
 
-<img src="assets/highlight_multimodal.png" width="100%">
+<img src="fig/abstract.png" width="100%">
 
 </td>
 </tr>
