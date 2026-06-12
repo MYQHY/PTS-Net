@@ -14,8 +14,11 @@ Try our:
 
 🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
 Dataset
-
+<p align="left">
+  <img src="fig/dataset.png" alt="Dataset">
+</p>
 🧰[Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD](https://github.com/MYQHY/Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD)
+
 ## 🔥 Overview
 
 <p align="center">
@@ -48,30 +51,27 @@ It is designed to address the following challenges:
 <table>
 <tr>
 <td width="50%">
+  
 
-### 🌗 Robust Multi-Modal Perception
-
-The proposed method effectively integrates complementary information from multiple sensing modalities, improving robustness under challenging imaging conditions.
+### 🌗 Innovative ideas inspired by event sensors
 
 </td>
 <td width="50%">
 
-<img src="assets/highlight_multimodal.png" width="100%">
+<img src="fig/abstract.png" width="100%">
 
 </td>
 </tr>
 
 <tr>
 <td width="50%">
-
-<img src="assets/highlight_framework.png" width="100%">
+  
+### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
 </td>
+
 <td width="50%">
-
-### 🧠 Physics-Aware Feature Modeling
-
-We introduce task-specific physical priors to guide feature interaction, suppress unreliable responses, and enhance discriminative representations.
+<img src="assets/highlight_framework.png" width="100%">
 
 </td>
 </tr>
