@@ -118,13 +118,25 @@ The prediction head estimates the final task-specific output, such as object loc
 
 ## 🎬 Demo
 
-<p align="center">
-  <img src="assets/demo.gif" width="88%">
-</p>
-
-<p align="center">
-  <b>Qualitative visualization of the proposed method under challenging conditions.</b>
-</p>
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="fig/NUDT-MIRSDT-Sequence2_mask_visualization.gif" width="100%">
+      <br>
+      <b>NUDT-MIRSDT</b>
+    </td>
+    <td align="center" width="33%">
+      <img src="fig/NUDT-MIRSDT-HiNo-Sequence6_mask_visualization.gif" width="100%">
+      <br>
+      <b>NUDT-MIRSDT-HiNo</b>
+    </td>
+    <td align="center" width="33%">
+      <img src="fig/HIT_EWIRSTD-Sequence55_mask_visualization.gif" width="100%">
+      <br>
+      <b>HIT_EWIRSTD</b>
+    </td>
+  </tr>
+</table>
 
 ---
 
