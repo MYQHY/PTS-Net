@@ -92,29 +92,7 @@ The complete pipeline supports training, evaluation, inference, visualization, a
 </tr>
 </table>
 
----
 
-## 🧩 Method
-
-<p align="center">
-  <img src="assets/pipeline.png" width="95%">
-</p>
-
-The overall framework consists of three key components:
-
-### 1. Feature Extraction Backbone
-
-We adopt a strong multi-scale backbone to extract hierarchical visual representations from input data.
-
-### 2. Task-Aware Feature Fusion
-
-The proposed fusion module adaptively combines complementary information while suppressing noisy or unreliable features.
-
-### 3. Prediction Head
-
-The prediction head estimates the final task-specific output, such as object location, segmentation mask, keypoints, pose parameters, or classification scores.
-
----
 
 ## 🎬 Demo
 
