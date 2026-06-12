@@ -15,7 +15,7 @@ Try our:
 🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
 Dataset
 <p align="center">
-  <img src="fig/dataset" alt="Exploration of the boundaries of detection capability for IRSTD">
+  <img src="fig/dataset.png" alt="Dataset">
 </p>
 🧰[Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD](https://github.com/MYQHY/Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD)
 ## 🔥 Overview
@@ -50,7 +50,10 @@ It is designed to address the following challenges:
 <table>
 <tr>
 <td width="50%">
-
+  
+<p align="center">
+  <img src="fig/abstract.png" alt="Like a event camera">
+</p>
 ### 🌗 Robust Multi-Modal Perception
 
 The proposed method effectively integrates complementary information from multiple sensing modalities, improving robustness under challenging imaging conditions.
