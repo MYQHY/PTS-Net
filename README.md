@@ -36,8 +36,6 @@ It is designed to address the following challenges:
 - 🔄 **Cross-domain generalization**
 - ⚡ **Efficient deployment on edge devices**
 
-> This repository provides the official PyTorch implementation, pretrained models, evaluation scripts, visualization tools, and reproducible experimental protocols.
-
 ---
 
 ## 📢 News
