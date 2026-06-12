@@ -14,7 +14,9 @@ Try our:
 
 🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
 Dataset
-
+<p align="center">
+  <img src="fig/dataset" alt="Exploration of the boundaries of detection capability for IRSTD">
+</p>
 🧰[Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD](https://github.com/MYQHY/Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD)
 ## 🔥 Overview
 
