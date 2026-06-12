@@ -57,17 +57,6 @@ It is designed to address the following challenges:
 
 ### ⚡ Efficient and Reproducible
 
-The complete pipeline supports training, evaluation, inference, visualization, and model deployment with clear configuration files.
-
-</td>
-<td width="50%">
-
-<img src="assets/highlight_efficiency.png" width="100%">
-
-</td>
-</tr>
-</table>
-
 
 
 ## 🎬 Demo
