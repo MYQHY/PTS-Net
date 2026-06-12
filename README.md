@@ -272,7 +272,6 @@ You may also open an issue in this repository.
 
 ### ⭐ Star this repository if you find it helpful!
 
-<img src="assets/footer.png" width="90%">
 
 </div>
 
