@@ -48,36 +48,13 @@ It is designed to address the following challenges:
 
 ## ✨ Highlights
 
-<table>
-<tr>
-<td width="50%">
-  
-
 ### 🌗 Innovative ideas inspired by event sensors
-
-</td>
-<td width="50%">
 
 <img src="fig/abstract.png" width="100%">
 
-</td>
-</tr>
-
-<tr>
-<td width="50%">
-  
 ### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
-</td>
-
-<td width="50%">
-<img src="assets/highlight_framework.png" width="100%">
-
-</td>
-</tr>
-
-<tr>
-<td width="50%">
+### 🧩 Broader applicability
 
 ### ⚡ Efficient and Reproducible
 
