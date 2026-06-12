@@ -8,7 +8,7 @@
 
 </div>
 
-## 🔗 Quick Jump
+## 🔗 Quick Link
 Try our:
 
 🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
