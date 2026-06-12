@@ -71,9 +71,7 @@ It is designed to address the following challenges:
 </td>
 <td width="50%">
 
-### 🧠 Physics-Aware Feature Modeling
-
-We introduce task-specific physical priors to guide feature interaction, suppress unreliable responses, and enhance discriminative representations.
+### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
 </td>
 </tr>
