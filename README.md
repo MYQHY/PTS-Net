@@ -14,7 +14,7 @@ Try our:
 🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
 Dataset
 <p align="left">
-  <img src="fig/dataset.pdf" alt="Dataset">
+  <img src="fig/dataset.png" alt="Dataset">
 </p>
 
 🧰[Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD](https://github.com/MYQHY/Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD)
@@ -48,7 +48,7 @@ It is designed to address the following challenges:
 
 ### 🌗 Innovative ideas inspired by event sensors
 
-<img src="fig/abstract.pdf" width="50%">
+<img src="fig/abstract.png" width="50%">
 
 ### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
