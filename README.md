@@ -137,8 +137,8 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 ### Comparison with State-of-the-Art Methods
 
 <p>
-  <b>Pd ↑</b>: Probability of detection, higher is better. &nbsp;&nbsp;
-  <b>Fa ↓</b>: False alarm rate, lower is better.
+  <b>Pd(%) ↑</b>: Probability of detection, higher is better. &nbsp;&nbsp;
+  <b>Fa(1e-6) ↓</b>: False alarm rate, lower is better.
 </p>
 
 </div>
