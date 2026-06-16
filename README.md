@@ -55,7 +55,7 @@ We introduce a pseudo time surface representation inspired by event cameras, ena
 
 ### 🧠 Breaking the Detection Limit
 
-<img src="fig/Highlighg.png" width="92%">
+<img src="fig/Highlight.png" width="92%">
 
 <p align="left">
 Our method significantly improves the detection probability under extremely low-SNR conditions and pushes the upper bound of weak moving target detection capability.
