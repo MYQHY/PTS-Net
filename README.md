@@ -91,7 +91,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
         <b>IRDST</b>, and <b>HIT_EWIRSTD</b>.
       </p>
       <p align="center">
-        <b>NUDT-MIRSDT</b> · <b>HiNo</b> · <b>IRDST</b> · <b>HIT_EWIRSTD</b>
+        <b>NUDT-MIRSDT</b> · <b>(and HiNo)</b> · <b>IRDST</b> · <b>HIT_EWIRSTD</b>
       </p>
     </td>
     <td width="50%" valign="top">
