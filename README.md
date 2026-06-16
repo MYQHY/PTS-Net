@@ -108,7 +108,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 
 
 
-## 🎬 Demo
+## 🎬 Video Demo
 
 <table>
   <tr>
