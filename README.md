@@ -88,7 +88,7 @@ It is designed to address the following challenges:
 
 ### Quantitative comparison on different infrared small target datasets
 
-p>
+<p>
   <b>Pd ↑</b>: Probability of detection, higher is better. &nbsp;&nbsp;
   <b>Fa ↓</b>: False alarm rate, lower is better.
 </p>
@@ -96,7 +96,6 @@ p>
 </div>
 
 <details open>
-<summary><b>🔍 Full quantitative results</b></summary>
 
 <br>
 
