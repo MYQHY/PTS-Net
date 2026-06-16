@@ -44,6 +44,8 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 
 ### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
+<img src="fig/Highlighg.png" width="50%">
+
 ### 🧩 Broader applicability
 
 ### ⚡ Efficient and Reproducible
