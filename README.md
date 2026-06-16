@@ -19,7 +19,7 @@ Dataset
 
 🧰[Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD](https://github.com/MYQHY/Statistical-Toolbox-for-SNR-and-TSNR-of-Motion-IRSTD)
 
-## 🔥 Overview
+## 🔥 Abstract
 
 <p align="center">
   <img src="assets/teaser.png" width="92%">
