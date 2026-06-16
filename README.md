@@ -40,7 +40,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 
 ### 🌗 Innovative ideas inspired by event sensors
 
-<img src="fig/abstract.png" width="50%">
+<img src="fig/abstract.png" width="30%">
 
 ### 🧠 Break through the existing upper limit of extremely weak target detection capability
 
