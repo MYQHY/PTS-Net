@@ -53,7 +53,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
       <img src="fig/abstract.png" width="88%">
     </td>
     <td width="50%" align="center" valign="middle">
-      <img src="fig/Highlighg.png" width="88%">
+      <img src="fig/Highlight.png" width="88%">
     </td>
   </tr>
 
