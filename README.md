@@ -42,7 +42,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 <tr>
 <td width="50%" align="center">
 
-### 🌗 Event-Sensor-Inspired Pseudo Time Surface
+### 🌗 Event Sensor Inspired PTS
 
 <img src="fig/abstract.png" width="92%">
 
@@ -87,7 +87,7 @@ We provide a clear evaluation pipeline and reproducible experimental settings, m
 </p>
 
 <p align="center">
-  <b>Code</b> · <b>Pretrained Models</b> · <b>Results</b> · <b>Visualization</b>
+  <b>Code</b> · <b>Trained Models</b> · <b>Results</b> · <b>Visualization</b>
 </p>
 
 </td>
