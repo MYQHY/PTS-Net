@@ -38,17 +38,61 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 
 ## ✨ Highlights
 
-### 🌗 Innovative ideas inspired by event sensors
+<table>
+<tr>
+<td width="50%" align="center">
 
-<img src="fig/abstract.png" width="30%">
+### 🌗 Event-Sensor-Inspired Pseudo Time Surface
 
-### 🧠 Break through the existing upper limit of extremely weak target detection capability
+<img src="fig/abstract.png" width="92%">
 
-<img src="fig/Highlighg.png" width="50%">
+<p align="left">
+We introduce a pseudo time surface representation inspired by event cameras, enabling frame-based infrared sequences to encode temporal intensity variations and motion clues for extremely weak target detection.
+</p>
 
-### 🧩 Broader applicability
+</td>
+<td width="50%" align="center">
+
+### 🧠 Breaking the Detection Limit
+
+<img src="fig/Highlighg.png" width="92%">
+
+<p align="left">
+Our method significantly improves the detection probability under extremely low-SNR conditions and pushes the upper bound of weak moving target detection capability.
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" align="center">
+
+### 🧩 Broader Applicability
+
+<p align="left">
+The proposed framework is applicable to multiple infrared small target detection benchmarks, including NUDT-MIRSDT, NUDT-MIRSDT-HiNo, IRDST, and HIT_EWIRSTD.
+</p>
+
+<p align="center">
+  <b>NUDT-MIRSDT</b> · <b>HiNo</b> · <b>IRDST</b> · <b>HIT_EWIRSTD</b>
+</p>
+
+</td>
+<td width="50%" align="center">
 
 ### ⚡ Efficient and Reproducible
+
+<p align="left">
+We provide a clear evaluation pipeline and reproducible experimental settings, making the proposed method easy to evaluate, compare, and extend.
+</p>
+
+<p align="center">
+  <b>Code</b> · <b>Pretrained Models</b> · <b>Results</b> · <b>Visualization</b>
+</p>
+
+</td>
+</tr>
+</table>
 
 
 
