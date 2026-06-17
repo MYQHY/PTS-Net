@@ -11,7 +11,7 @@
 ## 🔗 Quick Link
 Try our:
 
-🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
+🗂️[EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
 Dataset
 <p align="left">
   <img src="fig/dataset.png" alt="Dataset">
