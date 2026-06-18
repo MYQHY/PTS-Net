@@ -30,7 +30,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 ---
 
 ## 📢 News
-
+- **2026-06-18**: 🚀 Our Code will be avalible soon.
 - **2026-06-10**: 🚀 Project page is online.
 
 
