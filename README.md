@@ -119,7 +119,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
       <b>NUDT-MIRSDT-HiNo(Invisible to the naked eye)</b>
     </td>
     <td align="center" width="33%">
-      <img src="fig/EWIRSTD-Sequence55_mask_visualization.gif" width="100%">
+      <img src="fig/HIT-EWIRSTD-Sequence55_mask_visualization.gif" width="100%">
       <br>
       <b>EWIRSTD(Invisible to the naked eye)</b>
     </td>
