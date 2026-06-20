@@ -21,6 +21,9 @@ Dataset
 
 ## 🔥 Abstract
 
+<p align="left">
+  <img src="fig/pipelne.png" alt="Pipelne">
+</p>
 Multi frame infrared small target detection aims to exploit spatiotemporal information to distinguish targets from background clutter and accurately extract and localize targets. However, existing methods often lack interpretability in temporal feature modeling and show limited ability to process long temporal sequences, which severely restricts their performance on extremely weak targets. To address these limitations, we propose Pseudo Time Surface Network (PTS-Net). Inspired by the time surface representation in event camera research, which provides high temporal resolution with low information redundancy, PTS-Net builds an explicit and highly efficient temporal modeling scheme. It stably captures and compresses long term temporal cues of extremely weak moving targets, enabling accurate detection of extremely weak infrared small targets. Specifically, we first design a pseudo time surface converter. It extracts salient temporal fluctuation signals from long sequence infrared images and synthesizes pseudo time surfaces, thereby preserving temporal information during feature extraction. We then design a pseudo time surface filter that uses the short term trajectory continuity of moving infrared small targets as a prior constraint. This filter effectively removes high intensity isolated noise in pseudo time surfaces under extremely low signal to noise ratio conditions. Finally, we develop the EWIRSTD dataset to support future exploration of the detection limits for lower energy targets. This dataset can help push existing research and technologies toward the detection of smaller and dimmer infrared targets and support broader practical applications. The complete code and dataset are publicly available at https://github.com/MYQHY/PTS-Net.
 
 ---
