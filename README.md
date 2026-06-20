@@ -11,7 +11,7 @@
 ## 🔗 Quick Link
 Try our:
 
-🗂️[HIT-EWIRSTD](https://pan.baidu.com/s/19FWo0dn7FMTA0YJ7FJ3L0g?pwd=3q97)
+🗂️[EWIRSTD](https://pan.baidu.com/s/17qPv4MuCKB5qTK_SIHs_Cw?pwd=vbks)
 Dataset
 <p align="left">
   <img src="fig/dataset.png" alt="Dataset">
@@ -21,16 +21,12 @@ Dataset
 
 ## 🔥 Abstract
 
-<p align="center">
-  <img src="assets/teaser.png" width="92%">
-</p>
-
-Multi frame infrared small target detection aims to exploit spatiotemporal information to distinguish targets from background clutter and accurately extract and localize targets. However, existing methods often lack interpretability in temporal feature modeling and show limited ability to process long temporal sequences, which severely restricts their performance on extremely weak targets. To address these limitations, we propose Pseudo Time Surface Network (PTS-Net). Inspired by the time surface representation in event camera research, which provides high temporal resolution with low information redundancy, PTS-Net builds an explicit and highly efficient temporal modeling scheme. It stably captures and compresses long term temporal cues of extremely weak moving targets, enabling accurate detection of extremely weak infrared small targets. Specifically, we first design a pseudo time surface converter. It extracts salient temporal fluctuation signals from long sequence infrared images and synthesizes pseudo time surfaces, thereby preserving temporal information during feature extraction. We then design a pseudo time surface filter that uses the short term trajectory continuity of moving infrared small targets as a prior constraint. This filter effectively removes high intensity isolated noise in pseudo time surfaces under extremely low signal to noise ratio conditions. Finally, we develop the HIT-EWIRSTD dataset to support future exploration of the detection limits for lower energy targets. This dataset can help push existing research and technologies toward the detection of smaller and dimmer infrared targets and support broader practical applications. The complete code and dataset are publicly available at https://github.com/MYQHY/PTSNet.
+Multi frame infrared small target detection aims to exploit spatiotemporal information to distinguish targets from background clutter and accurately extract and localize targets. However, existing methods often lack interpretability in temporal feature modeling and show limited ability to process long temporal sequences, which severely restricts their performance on extremely weak targets. To address these limitations, we propose Pseudo Time Surface Network (PTS-Net). Inspired by the time surface representation in event camera research, which provides high temporal resolution with low information redundancy, PTS-Net builds an explicit and highly efficient temporal modeling scheme. It stably captures and compresses long term temporal cues of extremely weak moving targets, enabling accurate detection of extremely weak infrared small targets. Specifically, we first design a pseudo time surface converter. It extracts salient temporal fluctuation signals from long sequence infrared images and synthesizes pseudo time surfaces, thereby preserving temporal information during feature extraction. We then design a pseudo time surface filter that uses the short term trajectory continuity of moving infrared small targets as a prior constraint. This filter effectively removes high intensity isolated noise in pseudo time surfaces under extremely low signal to noise ratio conditions. Finally, we develop the EWIRSTD dataset to support future exploration of the detection limits for lower energy targets. This dataset can help push existing research and technologies toward the detection of smaller and dimmer infrared targets and support broader practical applications. The complete code and dataset are publicly available at https://github.com/MYQHY/PTS-Net.
 
 ---
 
 ## 📢 News
-
+- **2026-06-18**: 🚀 Our Code will be avalible in this month.
 - **2026-06-10**: 🚀 Project page is online.
 
 
@@ -39,64 +35,76 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 ## ✨ Highlights
 
 <table>
-<tr>
-<td width="50%" align="center">
+  <tr>
+    <td width="50%" align="center">
+      <h3>🌗 Event-Sensor-Inspired PTS</h3>
+    </td>
+    <td width="50%" align="center">
+      <h3>🧠 Breaking the Detection Limit</h3>
+    </td>
+  </tr>
 
-### 🌗 Event-Sensor-Inspired Pseudo Time Surface
+  <tr>
+    <td width="50%" align="center" valign="middle">
+      <img src="fig/abstract.png" width="88%">
+    </td>
+    <td width="50%" align="center" valign="middle">
+      <img src="fig/Highlight.png" width="88%">
+    </td>
+  </tr>
 
-<img src="fig/abstract.png" width="92%">
+  <tr>
+    <td width="50%" valign="top">
+      <p>
+        We introduce a <b>pseudo time surface</b> representation inspired by event cameras,
+        enabling frame-based infrared sequences to encode temporal intensity variations
+        and motion clues for extremely weak target detection.
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <p>
+        Our method significantly improves the detection probability under
+        <b>extremely low-SNR conditions</b> and pushes the upper bound of weak moving
+        target detection capability.
+      </p>
+    </td>
+  </tr>
 
-<p align="left">
-We introduce a pseudo time surface representation inspired by event cameras, enabling frame-based infrared sequences to encode temporal intensity variations and motion clues for extremely weak target detection.
-</p>
+  <tr>
+    <td width="50%" align="center">
+      <h3>🧩 Broader Applicability</h3>
+    </td>
+    <td width="50%" align="center">
+      <h3>⚡ Efficient and Reproducible</h3>
+    </td>
+  </tr>
 
-</td>
-<td width="50%" align="center">
-
-### 🧠 Breaking the Detection Limit
-
-<img src="fig/Highlighg.png" width="92%">
-
-<p align="left">
-Our method significantly improves the detection probability under extremely low-SNR conditions and pushes the upper bound of weak moving target detection capability.
-</p>
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" align="center">
-
-### 🧩 Broader Applicability
-
-<p align="left">
-The proposed framework is applicable to multiple infrared small target detection benchmarks, including NUDT-MIRSDT, NUDT-MIRSDT-HiNo, IRDST, and HIT_EWIRSTD.
-</p>
-
-<p align="center">
-  <b>NUDT-MIRSDT</b> · <b>HiNo</b> · <b>IRDST</b> · <b>HIT_EWIRSTD</b>
-</p>
-
-</td>
-<td width="50%" align="center">
-
-### ⚡ Efficient and Reproducible
-
-<p align="left">
-We provide a clear evaluation pipeline and reproducible experimental settings, making the proposed method easy to evaluate, compare, and extend.
-</p>
-
-<p align="center">
-  <b>Code</b> · <b>Pretrained Models</b> · <b>Results</b> · <b>Visualization</b>
-</p>
-
-</td>
-</tr>
+  <tr>
+    <td width="50%" valign="top">
+      <p>
+        The proposed framework is applicable to multiple infrared small target detection
+        benchmarks, including <b>NUDT-MIRSDT</b>, <b>NUDT-MIRSDT-HiNo</b>,
+        <b>IRDST</b>, and <b>EWIRSTD</b>.
+      </p>
+      <p align="center">
+        <b>NUDT-MIRSDT</b> · <b>(and HiNo)</b> · <b>IRDST</b> · <b>EWIRSTD</b>
+      </p>
+    </td>
+    <td width="50%" valign="top">
+      <p>
+        We provide a clear evaluation pipeline and reproducible experimental settings,
+        making the proposed method easy to evaluate, compare, and extend.
+      </p>
+      <p align="center">
+        <b>Code</b> · <b>Trained Models</b> · <b>Results</b> · <b>Visualization</b>
+      </p>
+    </td>
+  </tr>
 </table>
 
 
 
-## 🎬 Demo
+## 🎬 Video Demo
 
 <table>
   <tr>
@@ -113,7 +121,7 @@ We provide a clear evaluation pipeline and reproducible experimental settings, m
     <td align="center" width="33%">
       <img src="fig/HIT_EWIRSTD-Sequence55_mask_visualization.gif" width="100%">
       <br>
-      <b>HIT_EWIRSTD(Invisible to the naked eye)</b>
+      <b>EWIRSTD(Invisible to the naked eye)</b>
     </td>
   </tr>
 </table>
@@ -125,8 +133,8 @@ We provide a clear evaluation pipeline and reproducible experimental settings, m
 ### Comparison with State-of-the-Art Methods
 
 <p>
-  <b>Pd ↑</b>: Probability of detection, higher is better. &nbsp;&nbsp;
-  <b>Fa ↓</b>: False alarm rate, lower is better.
+  <b>Pd(%) ↑</b>: Probability of detection, higher is better. &nbsp;&nbsp;
+  <b>Fa(1e-6) ↓</b>: False alarm rate, lower is better.
 </p>
 
 </div>
@@ -135,7 +143,7 @@ We provide a clear evaluation pipeline and reproducible experimental settings, m
 
 <br>
 
-| Method | NUDT-MIRSDT<br>SNR≤3<br>Pd↑ | NUDT-MIRSDT<br>SNR≤3<br>Fa↓ | NUDT-MIRSDT<br>Pd↑ | NUDT-MIRSDT<br>Fa↓ | NUDT-MIRSDT-HiNo<br>Pd↑ | NUDT-MIRSDT-HiNo<br>Fa↓ | IRDST<br>Pd↑ | IRDST<br>Fa↓ | HIT_EWIRSTD<br>Pd↑ | HIT_EWIRSTD<br>Fa↓ |
+| Method | NUDT-MIRSDT<br>SNR≤3<br>Pd↑ | NUDT-MIRSDT<br>SNR≤3<br>Fa↓ | NUDT-MIRSDT<br>Pd↑ | NUDT-MIRSDT<br>Fa↓ | NUDT-MIRSDT-HiNo<br>Pd↑ | NUDT-MIRSDT-HiNo<br>Fa↓ | IRDST<br>Pd↑ | IRDST<br>Fa↓ | EWIRSTD<br>Pd↑ | EWIRSTD<br>Fa↓ |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | TopHat | 2.08 | 5380.38 | 14.92 | 2166.55 | 1.45 | 78.16 | 20.27 | 409.52 | 2.02 | 523.82 |
 | MAXMEAN | 14.12 | 255.29 | 21.92 | 193.24 | 4.68 | 393.16 | 31.12 | 59.61 | 9.32 | 1030.41 |
@@ -159,6 +167,7 @@ We provide a clear evaluation pipeline and reproducible experimental settings, m
 | LVNet | 96.24 | 8.34 | 98.82 | 6.28 | 50.13 | 24.76 | 97.62 | 22.31 | 21.67 | 219.05 |
 | DQAligner | 81.29 | 3.71 | 94.22 | 1.58 | 33.41 | 29.51 | 96.86 | **0** | 44.05 | **0.03** |
 | LMAFormer | 99.68 | 1.01 | 99.68 | **0.71** | 40.71 | 20.13 | 99.10 | 20.10 | 48.21 | 9.71 |
+| SAMamba | 99.21 | 2.01 | 99.57 | 1.80 | 58.04 | 19.22 | 99.14 | 0.48 | 45.67 | 5.24 |
 | DeepPro | 95.84 | 5.21 | 98.50 | 7.23 | 59.17 | 17.61 | 99.85 | 1.30 | 22.22 | 200.09 |
 | 🏆 **Ours** | **99.74** | 4.57 | **99.91** | 3.33 | **64.06** | **14.30** | **99.97** | 0.64 | **75.95** | 0.10 |
 
@@ -277,11 +286,7 @@ python tools/test.py \
 
 ## 📦 Model Zoo
 
-| Model | Dataset | Input Size | Metric-1 ↑ | Metric-2 ↑ | Metric-3 ↓ | Download |
-|---|---|---:|---:|---:|---:|---|
-| Ours-Tiny | Dataset-A | 256×256 | 80.1 | 73.4 | 8.2 | [Download](https://github.com/yourname/yourrepo/releases) |
-| Ours-Base | Dataset-A | 512×512 | 84.7 | 78.5 | 5.9 | [Download](https://github.com/yourname/yourrepo/releases) |
-| Ours-Large | Dataset-A + Dataset-B | 512×512 | 86.3 | 80.4 | 5.1 | [Download](https://github.com/yourname/yourrepo/releases) |
+
 
 ---
 
