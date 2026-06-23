@@ -237,7 +237,7 @@ python infer.py --data_root "F:\PTSoutput" --ckpt ".\pts_final\best.pt" --save_d
 
 ## 📮 Contact
 
-For questions, discussions, or collaborations, please contact:
+For questions, discussions, please contact:
 
 ```text
 24B921001@stu.hit.edu.cn
