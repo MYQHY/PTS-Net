@@ -192,9 +192,9 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 ## 🚀 Quick Start
 
 ### Generate PTS Input
-
+Run in MATLAB (Modify the input and output paths in the script before running it.):
 ```text
-matlab/main_build_ptsmain.m
+PTSConverter/main_build_ptsmain.m
 ```
 
 ### Inference on a sequence
