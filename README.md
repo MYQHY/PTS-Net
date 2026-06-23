@@ -178,46 +178,23 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 </details>
 
 
-## ⚙️ Installation
+## ⚙️ Environments
 
-### 1. Clone the repository
+- Windows 10/11 or Linux;
+- Python 3.10;
+- MATLAB R2021b or later;
+- NVIDIA GPU;
+- CUDA 12.1;
+- PyTorch 2.3.1.
 
-```bash
-git clone https://github.com/yourname/yourrepo.git
-cd yourrepo
-```
-
-### 2. Create environment
-
-```bash
-conda create -n yourproject python=3.8 -y
-conda activate yourproject
-```
-
-### 3. Install dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Optional: install CUDA extensions
-
-```bash
-cd ops
-python setup.py build develop
-cd ..
-```
 
 
 ## 🚀 Quick Start
 
-### Inference on a single sample
+### Generate PTS Input
 
-```bash
-python tools/infer.py \
-    --config configs/ours.yaml \
-    --checkpoint checkpoints/ours_best.pth \
-    --input demo/sample
+```text
+matlab/main_build_ptsmain.m
 ```
 
 ### Inference on a sequence
