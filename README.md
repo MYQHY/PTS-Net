@@ -30,7 +30,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 ---
 
 ## 📢 News
-- **2026-06-18**: 🚀 All code has been released, and the pretrained model weights will be made publicly available later this month..
+- **2026-06-18**: 🚀 All code has been released, and the model weights will be available after the paper is accepted.
 - **2026-06-10**: 🚀 Project page is online.
 
 
