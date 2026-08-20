@@ -5,17 +5,19 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+
 def _choose_groups(ch: int) -> int:
     for g in (8, 4, 2):
         if ch % g == 0:
             return g
     return 1
 
+
 def _norm(ch: int) -> nn.GroupNorm:
     return nn.GroupNorm(_choose_groups(ch), ch)
 
-class ResConvBlock(nn.Module):
 
+class ResConvBlock(nn.Module):
     def __init__(self, in_ch: int, out_ch: int):
         super().__init__()
         self.conv1 = nn.Conv2d(in_ch, out_ch, 3, padding=1, bias=False)
@@ -39,8 +41,8 @@ class ResConvBlock(nn.Module):
         out = self.act(out + identity)
         return out
 
-class UpBlock(nn.Module):
 
+class UpBlock(nn.Module):
     def __init__(self, in_ch: int, skip_ch: int, out_ch: int):
         super().__init__()
         self.up = nn.ConvTranspose2d(in_ch, out_ch, 2, stride=2)
@@ -53,8 +55,8 @@ class UpBlock(nn.Module):
         x = torch.cat([x, skip], dim=1)
         return self.conv(x)
 
-class DilatedContextBlock(nn.Module):
 
+class DilatedContextBlock(nn.Module):
     def __init__(self, ch: int, dilations: Tuple[int, ...] = (1, 2, 4)):
         super().__init__()
         branch_ch = max(ch // 2, 8)
@@ -77,8 +79,8 @@ class DilatedContextBlock(nn.Module):
         y = self.project(y)
         return self.act(x + y)
 
-class GatedAuxFusion(nn.Module):
 
+class GatedAuxFusion(nn.Module):
     def __init__(self, ch: int, aux_scale: float = 0.5):
         super().__init__()
         self.aux_scale = float(aux_scale)
@@ -91,29 +93,54 @@ class GatedAuxFusion(nn.Module):
         )
         self.refine = ResConvBlock(ch, ch)
 
-    def forward(self, pts_feat: torch.Tensor, aux_feat: torch.Tensor) -> Tuple[torch.Tensor, torch.Tensor]:
+    def forward(
+        self,
+        pts_feat: torch.Tensor,
+        aux_feat: torch.Tensor
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
         gate = self.gate(torch.cat([pts_feat, aux_feat], dim=1))
         fused = pts_feat + self.aux_scale * gate * aux_feat
         fused = self.refine(fused)
         return fused, gate
 
-class LearnableDirectionalPTSBank(nn.Module):
 
-    def __init__(self, angles=(0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5),
-                 lengths=(5, 7), width=1, support_thr=0.15, order_thr=0.0,
-                 alpha=1.0, beta=1.0, weight_temperature=1.0):
+class LearnableDirectionalPTSBank(nn.Module):
+    def __init__(
+        self,
+        angles=(0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5),
+        lengths=(5, 7),
+        width=1,
+        support_thr=0.15,
+        order_thr=0.0,
+        alpha=1.0,
+        beta=1.0,
+        alpha_comp=1.0,
+        beta_comp=1.0,
+        weight_temperature=1.0
+    ):
         super().__init__()
+
         self.angles = tuple(float(a) for a in angles)
         self.lengths = tuple(int(l) if int(l) % 2 == 1 else int(l) + 1 for l in lengths)
         self.width = int(width)
-        self.support_thr = float(support_thr)
-        self.order_thr = float(order_thr)
-        self.alpha = float(alpha)
-        self.beta = float(beta)
+
+        self.support_thr = nn.Parameter(torch.tensor(float(support_thr)))
+        self.order_thr = nn.Parameter(torch.tensor(float(order_thr)))
+        self.alpha = nn.Parameter(torch.tensor(float(alpha)))
+        self.beta = nn.Parameter(torch.tensor(float(beta)))
+        self.alpha_comp = nn.Parameter(torch.tensor(float(alpha_comp)))
+        self.beta_comp = nn.Parameter(torch.tensor(float(beta_comp)))
+
         self.weight_temperature = float(weight_temperature)
 
-        rad = max([math.ceil(L / 2 + self.width + 2) for L in self.lengths])
-        yy, xx = torch.meshgrid(torch.arange(-rad, rad + 1), torch.arange(-rad, rad + 1), indexing='ij')
+        rad = max(math.ceil(L / 2 + self.width + 2) for L in self.lengths)
+
+        yy, xx = torch.meshgrid(
+            torch.arange(-rad, rad + 1),
+            torch.arange(-rad, rad + 1),
+            indexing='ij'
+        )
+
         xx = xx.float()
         yy = yy.float()
 
@@ -128,27 +155,54 @@ class LearnableDirectionalPTSBank(nn.Module):
             n = -xx * math.sin(theta) + yy * math.cos(theta)
 
             for L in self.lengths:
-                support = ((s.abs() <= (L - 1) / 2.0) & (n.abs() <= self.width)).float()
+                support = (
+                    (s.abs() <= (L - 1) / 2.0)
+                    & (n.abs() <= self.width)
+                ).float()
+
                 order = torch.zeros_like(support)
+
                 if support.sum() > 0:
                     vals = s[support > 0]
                     max_abs = vals.abs().max().item()
+
                     if max_abs > 0:
                         vals = vals / max_abs
+
                     vals = vals - vals.mean()
                     order[support > 0] = vals
+
                 support_kernels.append(support)
                 order_kernels.append(order)
                 support_sums.append(float(support.sum().item()) + 1e-6)
                 kernel_specs.append((float(theta_deg), int(L)))
 
-        self.register_buffer('support_kernels', torch.stack(support_kernels, dim=0).unsqueeze(1))
-        self.register_buffer('order_kernels', torch.stack(order_kernels, dim=0).unsqueeze(1))
-        self.register_buffer('support_sums', torch.tensor(support_sums, dtype=torch.float32).view(1, -1, 1, 1))
+        support_kernels = torch.stack(support_kernels, dim=0).unsqueeze(1)
+        order_kernels = torch.stack(order_kernels, dim=0).unsqueeze(1)
+
+        self.register_buffer('support_kernels', support_kernels)
+        self.register_buffer('order_kernels', order_kernels)
+
+        self.register_buffer(
+            'support_sums',
+            torch.tensor(support_sums, dtype=torch.float32).view(1, -1, 1, 1)
+        )
+
         self.padding = rad
         self.kernel_specs = kernel_specs
         self.num_kernels = len(kernel_specs)
-        self.kernel_logits = nn.Parameter(torch.zeros(1, self.num_kernels, 1, 1))
+
+        self.kernel_logits = nn.Parameter(
+            torch.zeros(1, self.num_kernels, 1, 1)
+        )
+
+        self.support_compensation = nn.Parameter(
+            torch.zeros_like(support_kernels)
+        )
+
+        self.order_compensation = nn.Parameter(
+            torch.zeros_like(order_kernels)
+        )
 
     def normalized_kernel_weights(self) -> torch.Tensor:
         temperature = max(self.weight_temperature, 1e-6)
@@ -157,49 +211,141 @@ class LearnableDirectionalPTSBank(nn.Module):
     def get_weight_table(self):
         with torch.no_grad():
             weights = self.normalized_kernel_weights().flatten().detach().cpu().tolist()
+
         return [
-            {'angle': float(theta), 'length': int(length), 'weight': float(weight)}
+            {
+                'angle': float(theta),
+                'length': int(length),
+                'weight': float(weight)
+            }
             for (theta, length), weight in zip(self.kernel_specs, weights)
         ]
 
     def forward(self, p: torch.Tensor) -> torch.Tensor:
         m = (p > 0).float()
 
-        rsup = F.conv2d(m, self.support_kernels, padding=self.padding)
+        support_thr = self.support_thr.clamp(0.0, 1.0)
+        order_thr = self.order_thr.clamp_min(0.0)
+
+        alpha = self.alpha.clamp_min(1e-6)
+        beta = self.beta.clamp_min(1e-6)
+        alpha_comp = self.alpha_comp.clamp_min(1e-6)
+        beta_comp = self.beta_comp.clamp_min(1e-6)
+
+        rsup = F.conv2d(
+            m,
+            self.support_kernels,
+            padding=self.padding
+        )
         rsup = rsup / self.support_sums
 
-        rinc = F.conv2d(p, self.order_kernels, padding=self.padding)
-        rdec = F.conv2d(p, -self.order_kernels, padding=self.padding)
+        rinc = F.conv2d(
+            p,
+            self.order_kernels,
+            padding=self.padding
+        )
+        rdec = F.conv2d(
+            p,
+            -self.order_kernels,
+            padding=self.padding
+        )
+
         rord = torch.maximum(rinc, rdec)
 
-        valid_count = F.conv2d(m, (self.support_kernels > 0).float(), padding=self.padding)
-        rord = rord / (valid_count + 1e-6)
-        rord = F.relu(rord)
+        valid_count = F.conv2d(
+            m,
+            (self.support_kernels > 0).float(),
+            padding=self.padding
+        )
 
-        rsup = F.relu(rsup - self.support_thr)
-        rord = F.relu(rord - self.order_thr)
-        r = (rsup.clamp_min(0) ** self.alpha) * (rord.clamp_min(0) ** self.beta)
+        rord = F.relu(rord / (valid_count + 1e-6))
+
+        support_comp_kernels = F.relu(
+            self.support_kernels + self.support_compensation
+        )
+
+        support_comp_sums = support_comp_kernels.sum(
+            dim=(1, 2, 3)
+        ).view(1, -1, 1, 1).clamp_min(1e-6)
+
+        rsup_comp = F.conv2d(
+            m,
+            support_comp_kernels,
+            padding=self.padding
+        )
+        rsup_comp = rsup_comp / support_comp_sums
+
+        order_comp_kernels = (
+            self.order_kernels + self.order_compensation
+        )
+
+        rinc_comp = F.conv2d(
+            p,
+            order_comp_kernels,
+            padding=self.padding
+        )
+        rdec_comp = F.conv2d(
+            p,
+            -order_comp_kernels,
+            padding=self.padding
+        )
+
+        rord_comp = torch.maximum(rinc_comp, rdec_comp)
+        rord_comp = F.relu(rord_comp / (valid_count + 1e-6))
+
+        rsup = F.relu(rsup - support_thr)
+        rord = F.relu(rord - order_thr)
+        rsup_comp = F.relu(rsup_comp - support_thr)
+        rord_comp = F.relu(rord_comp - order_thr)
+
+        eps = 1e-6
+
+        r = (
+            rsup.clamp_min(eps) ** alpha
+            * rord.clamp_min(eps) ** beta
+            * rsup_comp.clamp_min(eps) ** alpha_comp
+            * rord_comp.clamp_min(eps) ** beta_comp
+        )
 
         weights = self.normalized_kernel_weights()
         r = torch.sum(weights * r, dim=1, keepdim=True)
 
         maxv = torch.amax(r.flatten(2), dim=2, keepdim=True).unsqueeze(-1)
         minv = torch.amin(r.flatten(2), dim=2, keepdim=True).unsqueeze(-1)
+
         r = (r - minv) / (maxv - minv + 1e-6)
+
         return r.clamp(0, 1)
+
 
 FixedDirectionalPTSBank = LearnableDirectionalPTSBank
 
-class PTSMainAuxNet(nn.Module):
 
-    def __init__(self, base_ch=32, aux_scale=0.5,
-                 bank_angles=(0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5),
-                 bank_lengths=(5, 7), bank_width=1):
+class PTSMainAuxNet(nn.Module):
+    def __init__(
+        self,
+        base_ch=32,
+        aux_scale=0.5,
+        bank_angles=(0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5),
+        bank_lengths=(5, 7),
+        bank_width=1
+    ):
         super().__init__()
-        c1, c2, c3, c4 = base_ch, base_ch * 2, base_ch * 4, base_ch * 8
+
+        c1, c2, c3, c4 = (
+            base_ch,
+            base_ch * 2,
+            base_ch * 4,
+            base_ch * 8
+        )
+
         self.aux_scale = float(aux_scale)
 
-        self.pts_bank = LearnableDirectionalPTSBank(angles=bank_angles, lengths=bank_lengths, width=bank_width)
+        self.pts_bank = LearnableDirectionalPTSBank(
+            angles=bank_angles,
+            lengths=bank_lengths,
+            width=bank_width
+        )
 
         self.pts_stem = ResConvBlock(2, c1)
         self.aux_stem = ResConvBlock(2, c1)
@@ -207,8 +353,10 @@ class PTSMainAuxNet(nn.Module):
 
         self.pool1 = nn.MaxPool2d(2)
         self.enc2 = ResConvBlock(c1, c2)
+
         self.pool2 = nn.MaxPool2d(2)
         self.enc3 = ResConvBlock(c2, c3)
+
         self.pool3 = nn.MaxPool2d(2)
 
         self.bottleneck = nn.Sequential(
@@ -228,13 +376,29 @@ class PTSMainAuxNet(nn.Module):
         hc = x[:, 1:3]
 
         p_denoise = self.pts_bank(p)
-        p_feat = self.pts_stem(torch.cat([p, p_denoise], dim=1))
+
+        p_feat = self.pts_stem(
+            torch.cat([p, p_denoise], dim=1)
+        )
+
         a_feat = self.aux_stem(hc)
 
-        s1, aux_gate = self.fuse1(p_feat, a_feat)
-        s2 = self.enc2(self.pool1(s1))
-        s3 = self.enc3(self.pool2(s2))
-        b = self.bottleneck(self.pool3(s3))
+        s1, aux_gate = self.fuse1(
+            p_feat,
+            a_feat
+        )
+
+        s2 = self.enc2(
+            self.pool1(s1)
+        )
+
+        s3 = self.enc3(
+            self.pool2(s2)
+        )
+
+        b = self.bottleneck(
+            self.pool3(s3)
+        )
 
         d3 = self.up3(b, s3)
         d2 = self.up2(d3, s2)
