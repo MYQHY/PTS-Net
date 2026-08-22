@@ -37,7 +37,7 @@ class DualHeadLoss(nn.Module):
     """
     相比旧版，增加 traj 头权重，避免网络只学热点/当前帧捷径。
     """
-    def __init__(self, lambda_latest: float = 1.0, lambda_traj: float = 0.6):
+    def __init__(self, lambda_latest: float = 1.0, lambda_traj: float = 1.0):
         super().__init__()
         self.lambda_latest = lambda_latest
         self.lambda_traj = lambda_traj
@@ -48,6 +48,6 @@ class DualHeadLoss(nn.Module):
 
     def forward(self, logits_latest: torch.Tensor, target_latest: torch.Tensor,
                 logits_traj: torch.Tensor, target_traj: torch.Tensor) -> torch.Tensor:
-        loss_latest = self.latest_focal(logits_latest, target_latest) + 0.3 * self.latest_dice(logits_latest, target_latest)
-        loss_traj = self.traj_focal(logits_traj, target_traj) + 0.5 * self.traj_dice(logits_traj, target_traj)
+        loss_latest = self.latest_focal(logits_latest, target_latest) + 1.0 * self.latest_dice(logits_latest, target_latest)
+        loss_traj = self.traj_focal(logits_traj, target_traj) + 1.0 * self.traj_dice(logits_traj, target_traj)
         return self.lambda_latest * loss_latest + self.lambda_traj * loss_traj
