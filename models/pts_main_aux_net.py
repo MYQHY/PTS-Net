@@ -108,7 +108,7 @@ class LearnableDirectionalPTSBank(nn.Module):
     def __init__(
         self,
         angles=(0, 22.5, 45, 67.5, 90, 112.5, 135, 157.5),
-        lengths=(5, 7),
+        lengths=(13, 17),
         width=3,
         support_thr=0.15,
         order_thr=0.0,
