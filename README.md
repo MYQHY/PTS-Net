@@ -30,6 +30,7 @@ Multi frame infrared small target detection aims to exploit spatiotemporal infor
 ---
 
 ## 📢 News
+- **2026-09-24**: 🎆 Our paper has been accepted by TCSVT.
 - **2026-06-18**: 🚀 All code has been released, and the model weights will be available after the paper is accepted.
 - **2026-06-10**: 🚀 Project page is online.
 
