@@ -248,7 +248,9 @@ You may also open an issue in this repository.
 ---
 
 <div align="left">
+  
 ## Cite
+
 If you find the code useful, please consider citing our paper using the following BibTeX entry.
 
 ```bibtex
