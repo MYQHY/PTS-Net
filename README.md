@@ -247,6 +247,31 @@ You may also open an issue in this repository.
 
 ---
 
+<div align="left">
+## Cite
+If you find the code useful, please consider citing our paper using the following BibTeX entry.
+
+```bibtex
+@ARTICLE{11701595,
+  author={Wang, Maoxuan and Gong, Jinnan and Liu, Yuxi and Zhang, Wei and Mu, Yongqi and Jiang, Shikai and Huang, Yuanxin and Bao, Guangzhen and Shi, Tianjun},
+  journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
+  title={PTS-Net: A Pseudo Time Surface Network for Extremely Weak Infrared Small Moving Target Detection}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-1},
+  keywords={Object detection;Signal to noise ratio;Timing;Surfaces;Modeling;Signal detection;Trajectory;Filtering;Filters;Pixel;Infrared small target detection;pseudo time surface;extremely weak target;temporal modeling},
+  doi={10.1109/TCSVT.2026.3735699}}
+
+```
+
+
+
+</div>
+
+
+
+
 <div align="center">
 
 ## Contributors
@@ -287,25 +312,4 @@ You may also open an issue in this repository.
 
 ### ⭐ Star this repository if you find it helpful!
 
-<div align="left">
-## Cite
-If you find the code useful, please consider citing our paper using the following BibTeX entry.
-
-```bibtex
-@ARTICLE{11701595,
-  author={Wang, Maoxuan and Gong, Jinnan and Liu, Yuxi and Zhang, Wei and Mu, Yongqi and Jiang, Shikai and Huang, Yuanxin and Bao, Guangzhen and Shi, Tianjun},
-  journal={IEEE Transactions on Circuits and Systems for Video Technology}, 
-  title={PTS-Net: A Pseudo Time Surface Network for Extremely Weak Infrared Small Moving Target Detection}, 
-  year={2026},
-  volume={},
-  number={},
-  pages={1-1},
-  keywords={Object detection;Signal to noise ratio;Timing;Surfaces;Modeling;Signal detection;Trajectory;Filtering;Filters;Pixel;Infrared small target detection;pseudo time surface;extremely weak target;temporal modeling},
-  doi={10.1109/TCSVT.2026.3735699}}
-
-```
-
-
-
-</div>
 
